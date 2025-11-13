@@ -69,7 +69,6 @@ public class HumorTracker : MonoBehaviour
             {
                 return false;
             }
-
         }
 
         return true;
