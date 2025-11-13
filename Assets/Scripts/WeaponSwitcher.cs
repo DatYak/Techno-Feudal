@@ -29,13 +29,16 @@ public class WeaponSwitcher : MonoBehaviour
         previousAction.performed += PreviousGun;
     }
 
+    bool gunHeld = false;
     public void FireGun(InputAction.CallbackContext context)
     {
         guns[activeGun].FireGun();
+        gunHeld = true;
     }
     public void ReleaseGun(InputAction.CallbackContext context)
     {
         guns[activeGun].ReleaseGun();
+        gunHeld = false;
     }
 
     public void NextGun(InputAction.CallbackContext context)
@@ -59,6 +62,11 @@ public class WeaponSwitcher : MonoBehaviour
 
     public void SwapGun(int index)
     {
+        if (gunHeld)
+        {
+            guns[activeGun].ReleaseGun();
+            gunHeld = false;
+        }
 
         for (int i = 0; i < guns.Length; i++)
         {
