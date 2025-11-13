@@ -448,6 +448,14 @@ PrefabInstance:
       propertyPath: color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8503101205963013036, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
+      propertyPath: fireDelay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503101205963013036, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
+      propertyPath: isAutomatic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8944562298031548253, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
       propertyPath: m_Name
       value: Yellow Bile
@@ -790,6 +798,10 @@ PrefabInstance:
       propertyPath: color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8503101205963013036, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 7370644669119658111, guid: 542e5653d1dd44342bec7e11abe45f0b, type: 3}
     - target: {fileID: 8944562298031548253, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
       propertyPath: m_Name
       value: Blood
@@ -2020,9 +2032,17 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8503101205963013036, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
+      propertyPath: fireDelay
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503101205963013036, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
       propertyPath: projectile
       value: 
       objectReference: {fileID: 7370644669119658111, guid: 542e5653d1dd44342bec7e11abe45f0b, type: 3}
+    - target: {fileID: 8503101205963013036, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
+      propertyPath: isAutomatic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8944562298031548253, guid: de1cf28ffd567a9428e5b03f497abca5, type: 3}
       propertyPath: m_Name
       value: Black Bile

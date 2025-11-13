@@ -10,13 +10,17 @@ public class GunBase : MonoBehaviour
     protected float fireDelay;
 
     [SerializeField]
+    protected bool isAutomatic;
+
+    private bool isHeld;
+
+    [SerializeField]
     protected Transform spawnPoint;
 
     [SerializeField]
     protected GameObject projectile;
 
     float lastFired;
-
 
     HumorTracker humorTracker;
 
@@ -39,13 +43,39 @@ public class GunBase : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (isHeld && isAutomatic)
+        {
+            FireProjectile();
+        }
+    }
+
     public void FireGun()
     {
+        if (!isAutomatic)
+        {
+            FireProjectile();
+        }
+        else
+        {
+            isHeld = true;
+        }
+    }
+
+    public void ReleaseGun()
+    {
+        isHeld = false;
+    }
+
+    private void FireProjectile()
+    {
+
         if (lastFired + fireDelay > Time.time)
         {
             return;
         }
-        
+
         if (humorTracker.IsChangePossible(humor, humorCost) == false)
         {
             return;
@@ -54,7 +84,7 @@ public class GunBase : MonoBehaviour
         humorTracker.ModifyBalance(humor, humorCost);
 
         lastFired = Time.time;
-        
+
         if (projectile == null)
         {
             Debug.Log("Fired without projectile");
@@ -64,10 +94,5 @@ public class GunBase : MonoBehaviour
         {
             Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
         }
-    }
-
-    public void ReleaseGun()
-    {
-
     }
 }

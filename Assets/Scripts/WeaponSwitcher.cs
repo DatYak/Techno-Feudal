@@ -25,10 +25,6 @@ public class WeaponSwitcher : MonoBehaviour
         wep3Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 3");
         wep4Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 4");
 
-
-        fireAction.started += FireGun;
-        fireAction.performed += ReleaseGun;
-
         wep1Action.performed += SwapWeapon1;
         wep2Action.performed += SwapWeapon2;
         wep3Action.performed += SwapWeapon3;
@@ -36,13 +32,27 @@ public class WeaponSwitcher : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (fireAction.WasPressedThisFrame())
+        {
+            FireGun();
+        }
+
+        if (fireAction.WasReleasedThisFrame())
+        {
+            ReleaseGun();
+        }
+    }
+
+
     bool gunHeld = false;
-    public void FireGun(InputAction.CallbackContext context)
+    public void FireGun()
     {
         guns[activeGun].FireGun();
         gunHeld = true;
     }
-    public void ReleaseGun(InputAction.CallbackContext context)
+    public void ReleaseGun()
     {
         guns[activeGun].ReleaseGun();
         gunHeld = false;
