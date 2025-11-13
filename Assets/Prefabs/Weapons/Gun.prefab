@@ -170,3 +170,5 @@ MonoBehaviour:
   fireDelay: 0.2
   spawnPoint: {fileID: 3792109910051573033}
   projectile: {fileID: 8123221377937766895, guid: 7b42a4cee61769f46a524975695d8d30, type: 3}
+  humor: 0
+  humorCost: 0.5

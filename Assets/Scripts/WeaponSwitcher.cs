@@ -5,8 +5,10 @@ public class WeaponSwitcher : MonoBehaviour
 {
 
     InputAction fireAction;
-    InputAction nextAction;
-    InputAction previousAction;
+    InputAction wep1Action;
+    InputAction wep2Action;
+    InputAction wep3Action;
+    InputAction wep4Action;
 
     [SerializeField]
     public GunBase[] guns;
@@ -18,15 +20,20 @@ public class WeaponSwitcher : MonoBehaviour
         SwapGun(activeGun);
 
         fireAction = transform.root.GetComponent<PlayerInput>().actions.FindAction("Attack");
-        nextAction = transform.root.GetComponent<PlayerInput>().actions.FindAction("Next");
-        previousAction = transform.root.GetComponent<PlayerInput>().actions.FindAction("Previous");
+        wep1Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 1");
+        wep2Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 2");
+        wep3Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 3");
+        wep4Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 4");
 
 
         fireAction.started += FireGun;
         fireAction.performed += ReleaseGun;
 
-        nextAction.performed += NextGun;
-        previousAction.performed += PreviousGun;
+        wep1Action.performed += SwapWeapon1;
+        wep2Action.performed += SwapWeapon2;
+        wep3Action.performed += SwapWeapon3;
+        wep4Action.performed += SwapWeapon4;
+
     }
 
     bool gunHeld = false;
@@ -58,6 +65,23 @@ public class WeaponSwitcher : MonoBehaviour
             index = guns.Length - 1;
         }
         SwapGun(index);
+    }
+
+    private void SwapWeapon1(InputAction.CallbackContext context)
+    {
+        SwapGun(0);
+    }
+    private void SwapWeapon2(InputAction.CallbackContext context)
+    {
+        SwapGun(1);
+    }
+    private void SwapWeapon3(InputAction.CallbackContext context)
+    {
+        SwapGun(2);
+    }
+    private void SwapWeapon4(InputAction.CallbackContext context)
+    {
+        SwapGun(3);
     }
 
     public void SwapGun(int index)

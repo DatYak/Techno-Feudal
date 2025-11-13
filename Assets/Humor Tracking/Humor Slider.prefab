@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6274668328555712909
 RectTransform:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1439501336229785861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 085dbbab1c30ebd42968b729b7457ba8, type: 3}
+  m_Script: {fileID: 11500000, guid: 48fae7895adb6aa40b07acb7655a6814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumorSlider
   type: 0
@@ -441,7 +441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7377390685237351699
 RectTransform:
   m_ObjectHideFlags: 0

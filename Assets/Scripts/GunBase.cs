@@ -18,9 +18,20 @@ public class GunBase : MonoBehaviour
     float lastFired;
 
 
+    HumorTracker humorTracker;
+
+    [SerializeField]
+    protected HumorType humor;
+
+    [SerializeField]
+    protected float humorCost;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        humorTracker = transform.root.GetComponent<HumorTracker>();
+
         MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
         if (mr != null )
         {
@@ -35,11 +46,18 @@ public class GunBase : MonoBehaviour
             return;
         }
         
+        if (humorTracker.IsChangePossible(humor, humorCost) == false)
+        {
+            return;
+        }
+
+        humorTracker.ModifyBalance(humor, humorCost);
+
         lastFired = Time.time;
         
         if (projectile == null)
         {
-            Debug.Log("Fired");
+            Debug.Log("Fired without projectile");
             return;
         }
         else
