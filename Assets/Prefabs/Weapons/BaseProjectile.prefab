@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2344539464117779232}
   - component: {fileID: 4050002851656860268}
   - component: {fileID: 3161659860485521475}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7328559854334626126}
   - component: {fileID: 5321644058776462155}
   - component: {fileID: 7416511903383394102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BaseProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8f22547d716b243bd864534dfb0637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileBase
-  launchSpeed: 50
+  launchSpeed: 80
   damage: 15
 --- !u!54 &5321644058776462155
 Rigidbody:
@@ -157,7 +157,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
