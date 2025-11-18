@@ -297,14 +297,6 @@ MonoBehaviour:
     m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2776c80d-3c14-4091-8c56-d04ced07a2b0
-    m_ActionName: 'Player/Previous[/Keyboard/1]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba
-    m_ActionName: 'Player/Next[/Keyboard/2]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
     m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
@@ -351,6 +343,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4eccc237-4293-422a-9774-e6da7c1b7dd7
     m_ActionName: 'Player/Back[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fd2150cb-5138-4506-b621-b81932220a1c
+    m_ActionName: 'Player/Weapon 1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b70b5ed-4e85-42a0-9d33-85f10017351b
+    m_ActionName: 'Player/Weapon 2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7b35d44e-a86c-4576-94b1-80778bfb81e6
+    m_ActionName: 'Player/Weapon 3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2e2361de-48a3-4f6a-9b66-c918db3e44f7
+    m_ActionName: 'Player/Weapon 4[/Keyboard/4]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -370,6 +378,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   playerHead: {fileID: 1817848541}
   walkSpeed: 6
+  jumpHeight: 0.8
+  gravityValue: -9.8
   mouseSensitivity: 30
 --- !u!114 &22242368
 MonoBehaviour:
