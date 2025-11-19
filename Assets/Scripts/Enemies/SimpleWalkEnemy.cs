@@ -11,12 +11,9 @@ public class SimpleWalkEnemy : EnemyMovement
 
     NavMeshAgent agent;
 
-    GameObject target;
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player");
 
         if (agent)
         {
@@ -28,9 +25,9 @@ public class SimpleWalkEnemy : EnemyMovement
     {
         base.ProcessMovement();
 
-        if (target != null && agent != null)
+        if (enemy.target != null && agent != null)
         {
-            Vector3 targetPosition = target.transform.position;
+            Vector3 targetPosition = enemy.target.transform.position;
 
             if (Vector3.Distance(targetPosition, transform.position) > followDistance)
             {
