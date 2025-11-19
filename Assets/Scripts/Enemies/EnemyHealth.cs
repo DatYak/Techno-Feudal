@@ -31,7 +31,9 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            Destroy(this.gameObject);
+            Enemy enemy = this.GetComponent<Enemy>();
+            if (enemy != null)
+                enemy.Die();
         }
     }
 }
