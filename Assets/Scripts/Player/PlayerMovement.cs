@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     InputAction moveAction;
     InputAction jumpAction;
+    InputAction dashAction;
     InputAction lookAction;
     InputAction backAction;
 
@@ -28,6 +30,14 @@ public class PlayerMovement : MonoBehaviour
     float gravityValue = -9.8f;
 
     [SerializeField]
+    float dashSpeed = 10;
+
+    [SerializeField]
+    float dashTime = 0.5f;
+
+    bool isDashing = false;
+
+    [SerializeField]
     float mouseSensitivity;
 
     float xRotation = 0;
@@ -43,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         jumpAction = input.actions.FindAction("Jump");
         lookAction = input.actions.FindAction("Look");
         backAction = input.actions.FindAction("Back");
+        dashAction = input.actions.FindAction("Dash");
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -59,6 +70,8 @@ public class PlayerMovement : MonoBehaviour
         if (backAction.WasPerformedThisFrame()) ToggleCursor();
 
         if (jumpAction.WasPerformedThisFrame()) StartJump();
+
+        if (dashAction.WasPerformedThisFrame()) StartCoroutine(DashCoroutine());
     }
 
     private void FixedUpdate()
@@ -76,8 +89,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 movement = new Vector3(moveDir.x, 0, moveDir.y) * walkSpeed;
 
-        movement = transform.TransformDirection(movement);
-        controller.Move(movement * Time.deltaTime);
+        if (!isDashing)
+        {
+            movement = transform.TransformDirection(movement);
+            controller.Move(movement * Time.deltaTime);
+        }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
@@ -108,5 +124,19 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = !Cursor.visible;
+    }
+
+    IEnumerator DashCoroutine()
+    {
+        isDashing = true;
+        float startTime = Time.time;
+        Vector3 direction = new Vector3(moveDir.x, 0, moveDir.y); 
+
+        while(Time.time < startTime + dashTime)
+        {
+            controller.Move(direction * dashSpeed * Time.deltaTime);
+            yield return null;
+        }
+        isDashing = false;
     }
 }

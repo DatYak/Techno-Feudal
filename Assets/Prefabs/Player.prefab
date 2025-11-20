@@ -176,6 +176,8 @@ MonoBehaviour:
   walkSpeed: 6
   jumpHeight: 0.8
   gravityValue: -9.8
+  dashSpeed: 18
+  dashTime: 0.15
   mouseSensitivity: 30
 --- !u!143 &7892039358551322963
 CharacterController:
