@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isDashing = true;
         float startTime = Time.time;
-        Vector3 direction = new Vector3(moveDir.x, 0, moveDir.y); 
+        Vector3 direction = transform.TransformDirection(new Vector3(moveDir.x, 0, moveDir.y)); 
 
         while(Time.time < startTime + dashTime)
         {
