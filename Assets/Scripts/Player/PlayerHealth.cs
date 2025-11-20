@@ -9,7 +9,13 @@ public class PlayerHealth : MonoBehaviour
     float imbalanceToDamage;
 
     [SerializeField]
+    float imbalanceToHeal;
+
+    [SerializeField]
     float imbalanceDamageRate;
+
+    [SerializeField]
+    float balanceHealRate;
 
     float currentHP;
 
@@ -30,6 +36,10 @@ public class PlayerHealth : MonoBehaviour
         if (imbalance > imbalanceToDamage)
         {
             Damage(imbalance * imbalanceDamageRate * Time.deltaTime);
+        }
+        else if (imbalance < imbalanceToHeal)
+        {
+            Damage(- balanceHealRate * Time.deltaTime);
         }
     }
 
