@@ -3,19 +3,37 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]
-    int maxHP;
+    float maxHP;
 
-    int currentHP;
+    [SerializeField]
+    float imbalanceToDamage;
+
+    [SerializeField]
+    float imbalanceDamageRate;
+
+    float currentHP;
 
     public float currentHPPercent { get { return (float)currentHP / (float)maxHP;}}
+
+    HumorTracker humorTracker;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHP = maxHP;
+        humorTracker = GetComponent<HumorTracker>();
     }
 
-    public void Damage (int damage)
+    void FixedUpdate()
+    {
+        float imbalance = humorTracker.GetHumorImbalance();
+        if (imbalance > imbalanceToDamage)
+        {
+            Damage(imbalance * imbalanceDamageRate * Time.deltaTime);
+        }
+    }
+
+    public void Damage (float damage)
     {
         currentHP -= damage;
     }

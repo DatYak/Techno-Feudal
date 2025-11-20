@@ -101,6 +101,19 @@ public class HumorTracker : MonoBehaviour
     {
         return humors[type].currentValue / totalFluid;
     }
+
+    public float GetHumorImbalance()
+    {
+        float balance = 0;
+        foreach (HumorType t in humors.Keys)
+        {
+            float diff = Mathf.Abs(humors[t].currentValue - humors[t].balancedValue);
+            balance += diff;
+        }
+
+        return balance;
+
+    }
 }
 
 public enum HumorType
