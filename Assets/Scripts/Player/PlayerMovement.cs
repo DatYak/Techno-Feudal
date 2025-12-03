@@ -27,6 +27,17 @@ public class PlayerMovement : MonoBehaviour
     float jumpHeight;
 
     [SerializeField]
+    float doubleJumpHeight;
+
+    bool hasDoubleJump;
+
+    [SerializeField]
+    HumorType doubleJumpHumor;
+
+    [SerializeField]
+    float doubleJumpCost;
+
+    [SerializeField]
     float gravityValue = -9.8f;
 
     [SerializeField]
@@ -92,6 +103,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void ProcessMovement()
     {
+        if (controller.isGrounded)
+        {
+            hasDoubleJump = true;
+        }
+
         if (controller.isGrounded && playerVelocity.y < 0)
         {
             playerVelocity.y = -2f;   
@@ -124,7 +140,19 @@ public class PlayerMovement : MonoBehaviour
     public void StartJump()
     {
         //Not on ground, cannot jump
-        if (!controller.isGrounded) return;
+        if (!controller.isGrounded)
+        {
+            if (!hasDoubleJump)
+            {
+                return;
+            }
+            else
+            {
+                humorTracker.ModifyBalance(doubleJumpHumor, doubleJumpCost);
+                playerVelocity.y = Mathf.Sqrt(doubleJumpHeight * -2f * gravityValue);
+                hasDoubleJump = false;
+            }
+        } 
 
         playerVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravityValue);
 

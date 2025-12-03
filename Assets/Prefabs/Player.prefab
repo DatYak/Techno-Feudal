@@ -175,6 +175,9 @@ MonoBehaviour:
   playerHead: {fileID: 1426844859749961551}
   walkSpeed: 6
   jumpHeight: 0.8
+  doubleJumpHeight: 1
+  doubleJumpHumor: 1
+  doubleJumpCost: -0.15
   gravityValue: -9.8
   dashSpeed: 18
   dashTime: 0.15
