@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     float imbalanceToDamage;
 
     [SerializeField]
-    float imbalanceToHeal;
+    float balanceToHeal;
 
     [SerializeField]
     float imbalanceDamageRate;
@@ -37,9 +37,9 @@ public class PlayerHealth : MonoBehaviour
         {
             Damage(imbalance * imbalanceDamageRate * Time.deltaTime);
         }
-        else if (imbalance < imbalanceToHeal)
+        else if (imbalance < balanceToHeal)
         {
-            Damage(- balanceHealRate * Time.deltaTime);
+            Damage(-balanceHealRate * Time.deltaTime);
         }
     }
 

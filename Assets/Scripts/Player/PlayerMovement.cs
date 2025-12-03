@@ -35,6 +35,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float dashTime = 0.5f;
 
+    [SerializeField]
+    HumorType dashHumor;
+
+    [SerializeField]
+    float dashHumorCost;
+
     bool isDashing = false;
 
     [SerializeField]
@@ -44,11 +50,15 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 playerVelocity;
 
+    HumorTracker humorTracker;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         input = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
+        humorTracker = GetComponent<HumorTracker>();
+
         moveAction = input.actions.FindAction("Move");
         jumpAction = input.actions.FindAction("Jump");
         lookAction = input.actions.FindAction("Look");
@@ -128,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DashCoroutine()
     {
+        humorTracker.ModifyBalance(dashHumor, dashHumorCost);
         isDashing = true;
         float startTime = Time.time;
         Vector3 direction = transform.TransformDirection(new Vector3(moveDir.x, 0, moveDir.y)); 

@@ -178,6 +178,8 @@ MonoBehaviour:
   gravityValue: -9.8
   dashSpeed: 18
   dashTime: 0.15
+  dashHumor: 3
+  dashHumorCost: -0.3
   mouseSensitivity: 30
 --- !u!143 &7892039358551322963
 CharacterController:
@@ -348,9 +350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHP: 100
-  imbalanceToDamage: 2.5
-  imbalanceToHeal: 0.5
-  imbalanceDamageRate: 0.5
+  imbalanceToDamage: 0.5
+  balanceToHeal: 0.2
+  imbalanceDamageRate: 0.1
   balanceHealRate: 3
 --- !u!1 &6384420000076725331
 GameObject:

@@ -107,10 +107,12 @@ public class HumorTracker : MonoBehaviour
         float balance = 0;
         foreach (HumorType t in humors.Keys)
         {
+            // Add together how far each humor is from balanced. 
             float diff = Mathf.Abs(humors[t].currentValue - humors[t].balancedValue);
             balance += diff;
         }
 
+        Debug.Log (balance);
         return balance;
 
     }
