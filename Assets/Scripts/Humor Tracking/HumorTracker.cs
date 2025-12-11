@@ -112,7 +112,7 @@ public class HumorTracker : MonoBehaviour
             balance += diff;
         }
 
-        Debug.Log (balance);
+        // Debug.Log (balance);
         return balance;
 
     }

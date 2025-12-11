@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHP: 100
   imbalanceToDamage: 0.5
-  balanceToHeal: 0.2
+  balanceToHeal: 0.3
   imbalanceDamageRate: 0.1
   balanceHealRate: 3
 --- !u!1 &6384420000076725331
