@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2790076511767348597}
+  - component: {fileID: 6087476388914423828}
   - component: {fileID: 3190553577393489726}
   - component: {fileID: 7892039358551322963}
   - component: {fileID: 285239413179544843}
@@ -160,6 +161,25 @@ Transform:
   - {fileID: 1426844859749961551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6087476388914423828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242463749515770798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff85fc72b5a82434b86d24e174eef48c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  playerHealth: {fileID: 0}
+  playerMovement: {fileID: 0}
+  isParrying: 0
+  isImmune: 0
+  parryDamageReduction: 0.5
+  damageBoost: 0
+  immunityTimeRemaining: 0
 --- !u!114 &3190553577393489726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +203,13 @@ MonoBehaviour:
   dashTime: 0.15
   dashHumor: 3
   dashHumorCost: -0.3
+  parryCooldown: 7
+  parryHumor: 4
+  parryHumorCost: -0.3
+  parryPerfectWindow: 0.5
+  lastParryRelease: 0
+  parryDamageBoost: 50
+  parryImmuneTime: 2
   mouseSensitivity: 30
 --- !u!143 &7892039358551322963
 CharacterController:
@@ -322,6 +349,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 2e2361de-48a3-4f6a-9b66-c918db3e44f7
     m_ActionName: 'Player/Weapon 4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 401f8476-6c88-457d-af84-61e12856a437
+    m_ActionName: 'Player/Parry[/Keyboard/ctrl]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

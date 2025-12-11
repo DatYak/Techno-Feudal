@@ -40,7 +40,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerHealth hit = other.gameObject.GetComponent<PlayerHealth>();
+            Player hit = other.gameObject.GetComponent<Player>();
             hit.Damage(damage);
         }
         else if (other.gameObject.tag != "Enemy")

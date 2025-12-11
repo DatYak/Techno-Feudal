@@ -17,9 +17,14 @@ public class HitscanBase : MonoBehaviour
 
     float spawnTime;
 
+    Player owner;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+        owner = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         RaycastHit Hit;
         lineRenderer.SetPosition(0, Vector3.zero);
 
@@ -28,7 +33,8 @@ public class HitscanBase : MonoBehaviour
             EnemyHealth HP;
             if (HP = Hit.collider.gameObject.GetComponent<EnemyHealth>())
             {
-                HP.Damage(damage);
+                HP.Damage(damage + owner.damageBoost);
+                owner.damageBoost = 0;
             }
             lineRenderer.SetPosition(1, transform.InverseTransformPoint(Hit.point));
         }

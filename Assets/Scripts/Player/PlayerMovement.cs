@@ -1,4 +1,5 @@
 using System.Collections;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     InputAction dashAction;
     InputAction lookAction;
     InputAction backAction;
-
+    InputAction parryAction;
 
     [SerializeField]
     Transform playerHead;
@@ -55,17 +56,37 @@ public class PlayerMovement : MonoBehaviour
     bool isDashing = false;
 
     [SerializeField]
+    float parryCooldown = 7.0f;
+
+    [SerializeField]
+    HumorType parryHumor;
+
+    [SerializeField]
+    float parryHumorCost;
+
+    float lastParryAttempt = 0;
+
+    public float parryPerfectWindow = 0.5f;
+    public float lastParryRelease = 0;
+
+    public int parryDamageBoost = 1000;
+    
+    public float parryImmuneTime = 2;
+
+    [SerializeField]
     float mouseSensitivity;
 
     float xRotation = 0;
 
     Vector3 playerVelocity;
 
+    Player player;
     HumorTracker humorTracker;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GetComponent<Player>();
         input = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
         humorTracker = GetComponent<HumorTracker>();
@@ -75,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         lookAction = input.actions.FindAction("Look");
         backAction = input.actions.FindAction("Back");
         dashAction = input.actions.FindAction("Dash");
+        parryAction = input.actions.FindAction("Parry");
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -93,12 +115,29 @@ public class PlayerMovement : MonoBehaviour
         if (jumpAction.WasPerformedThisFrame()) StartJump();
 
         if (dashAction.WasPerformedThisFrame()) StartCoroutine(DashCoroutine());
+
+        if (parryAction.WasPerformedThisFrame())
+        {
+            if (lastParryAttempt + parryCooldown < Time.time)
+            {
+                StartParry();
+            }
+        }
+        if (parryAction.WasReleasedThisFrame())
+        {
+            StopParry();
+        }
     }
 
     private void FixedUpdate()
     {
         ProcessMovement();
         ProcessLook();
+
+        if (player.isParrying)
+        {
+            humorTracker.ModifyBalance(parryHumor, parryHumorCost * Time.deltaTime);
+        }
     }
 
     private void ProcessMovement()
@@ -162,6 +201,28 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = !Cursor.visible;
+    }
+
+    private void StartParry()
+    {
+        player.isParrying = true;
+    }
+
+    private void StopParry()
+    {
+        player.isParrying = false;
+        lastParryRelease = Time.time;
+    }
+
+    public void FailParry()
+    {
+        lastParryAttempt = Time.time;
+    }
+    public void SucceedParry()
+    {
+        lastParryAttempt = Time.time;
+        player.damageBoost += parryDamageBoost;
+        player.AddImmunity(parryImmuneTime);
     }
 
     IEnumerator DashCoroutine()
