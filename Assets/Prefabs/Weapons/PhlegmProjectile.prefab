@@ -138,6 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileBase
   launchSpeed: 20
   damage: 15
+  explodeOnImpact: 1
+  explosionRadius: 5
 --- !u!54 &5321644058776462155
 Rigidbody:
   m_ObjectHideFlags: 0

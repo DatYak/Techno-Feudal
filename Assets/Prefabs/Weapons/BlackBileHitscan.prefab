@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 68161514166231189}
-  - component: {fileID: 1140590756348150552}
+  - component: {fileID: 9080484727778499536}
   m_Layer: 0
   m_Name: BlackBileHitscan
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4538793568543655218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1140590756348150552
+--- !u!114 &9080484727778499536
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,9 +42,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4080626423582487317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7ab74669b67ff45b678678b0d59a0b, type: 3}
+  m_Script: {fileID: 11500000, guid: bfd13970dd2442d4c941aacdbc3dd554, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitscanBase
+  m_EditorClassIdentifier: Assembly-CSharp::HitscanPierce
   distance: 50
   damage: 30
   lineRenderer: {fileID: 342558889304379589}
