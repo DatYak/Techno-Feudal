@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     InputAction lookAction;
     InputAction backAction;
     InputAction parryAction;
+    InputAction dupeAction;
 
     [SerializeField]
     Transform playerHead;
@@ -55,23 +56,26 @@ public class PlayerMovement : MonoBehaviour
 
     bool isDashing = false;
 
+    // PARRYING
     [SerializeField]
     float parryCooldown = 7.0f;
-
     [SerializeField]
     HumorType parryHumor;
-
     [SerializeField]
     float parryHumorCost;
-
     float lastParryAttempt = 0;
-
     public float parryPerfectWindow = 0.5f;
     public float lastParryRelease = 0;
-
     public int parryDamageBoost = 1000;
-    
     public float parryImmuneTime = 2;
+
+    //DUPING
+    public HumorType dupeHumor;
+    public float dupeHumorCost;
+    public float dupeCooldown = 12;
+    float lastDupeLaunch = -100000;
+    public GameObject aggroDuplicate;
+
 
     [SerializeField]
     float mouseSensitivity;
@@ -96,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
         lookAction = input.actions.FindAction("Look");
         backAction = input.actions.FindAction("Back");
         dashAction = input.actions.FindAction("Dash");
+        dupeAction = input.actions.FindAction("Dupe");
         parryAction = input.actions.FindAction("Parry");
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -126,6 +131,14 @@ public class PlayerMovement : MonoBehaviour
         if (parryAction.WasReleasedThisFrame())
         {
             StopParry();
+        }
+        if (dupeAction.WasPerformedThisFrame())
+        {
+            if (lastDupeLaunch + dupeCooldown < Time.time)
+            {
+                ThrowDuplicate();
+                lastDupeLaunch = Time.time;
+            }
         }
     }
 
@@ -223,6 +236,12 @@ public class PlayerMovement : MonoBehaviour
         lastParryAttempt = Time.time;
         player.damageBoost += parryDamageBoost;
         player.AddImmunity(parryImmuneTime);
+    }
+
+    public void ThrowDuplicate()
+    {
+        humorTracker.ModifyBalance(dupeHumor, dupeHumorCost);
+        Instantiate(aggroDuplicate, transform.position + (playerHead.transform.forward * 3), playerHead.transform.rotation);
     }
 
     IEnumerator DashCoroutine()

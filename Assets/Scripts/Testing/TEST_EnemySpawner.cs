@@ -8,7 +8,7 @@ public class TEST_EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             Instantiate(EnemToSpawn, transform.position, Quaternion.identity);
         }

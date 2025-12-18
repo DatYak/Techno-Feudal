@@ -79,6 +79,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Dupe",
+                    "type": "Button",
+                    "id": "e02f29dc-3beb-4d42-90d1-2b8d13adba4b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Back",
                     "type": "Button",
                     "id": "4eccc237-4293-422a-9774-e6da7c1b7dd7",
@@ -524,11 +533,22 @@
                 {
                     "name": "",
                     "id": "999d3428-c3ed-4171-9b8c-dc49ab3823cf",
-                    "path": "<Keyboard>/leftCtrl",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Parry",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cd29e9b-2a9f-49fc-b0bb-b8ce224a1bf8",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dupe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

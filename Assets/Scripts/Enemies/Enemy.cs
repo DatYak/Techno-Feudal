@@ -11,6 +11,16 @@ public class Enemy : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
+    public void Taunt(GameObject target)
+    {
+        this.target = target;
+    }
+
+    public void EndTaunt()
+    {
+        target = GameObject.FindGameObjectWithTag("Player");
+    }
+
     public void Die()
     {
         Destroy (this.gameObject);

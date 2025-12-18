@@ -210,6 +210,10 @@ MonoBehaviour:
   lastParryRelease: 0
   parryDamageBoost: 50
   parryImmuneTime: 2
+  dupeHumor: 2
+  dupeHumorCost: -1
+  dupeCooldown: 12
+  aggroDuplicate: {fileID: 1523343231654033153, guid: a8933d4f7e78661489e495ea09992ec0, type: 3}
   mouseSensitivity: 30
 --- !u!143 &7892039358551322963
 CharacterController:
@@ -353,6 +357,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 401f8476-6c88-457d-af84-61e12856a437
     m_ActionName: 'Player/Parry[/Keyboard/ctrl]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e02f29dc-3beb-4d42-90d1-2b8d13adba4b
+    m_ActionName: 'Player/Dupe[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
