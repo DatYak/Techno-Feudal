@@ -210,10 +210,10 @@ MonoBehaviour:
   lastParryRelease: 0
   parryDamageBoost: 50
   parryImmuneTime: 2
-  dupeHumor: 2
-  dupeHumorCost: -1
-  dupeCooldown: 12
-  aggroDuplicate: {fileID: 1523343231654033153, guid: a8933d4f7e78661489e495ea09992ec0, type: 3}
+  goopHumor: 2
+  goopHumorCost: -0.8
+  goopCooldown: 14
+  goopBomb: {fileID: 1523343231654033153, guid: 4c93dfde22760cd469280fb9e01f60a2, type: 3}
   mouseSensitivity: 30
 --- !u!143 &7892039358551322963
 CharacterController:

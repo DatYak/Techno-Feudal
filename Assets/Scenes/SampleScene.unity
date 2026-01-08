@@ -460,15 +460,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3540253586004381337, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.462612
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3540253586004381337, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000014305115
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3540253586004381337, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.799753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3540253586004381337, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2052,6 +2052,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2790076511767348597, guid: 155cfdd93be5fa74bb2ac34ab727b8c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190553577393489726, guid: 155cfdd93be5fa74bb2ac34ab727b8c2, type: 3}
+      propertyPath: goopCooldown
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4242463749515770798, guid: 155cfdd93be5fa74bb2ac34ab727b8c2, type: 3}

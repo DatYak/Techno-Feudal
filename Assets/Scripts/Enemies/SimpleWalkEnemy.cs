@@ -14,11 +14,6 @@ public class SimpleWalkEnemy : EnemyMovement
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
-        if (agent)
-        {
-            agent.speed = walkSpeed;
-        }
     }
 
     public override void ProcessMovement()
@@ -27,6 +22,8 @@ public class SimpleWalkEnemy : EnemyMovement
 
         if (enemy.target != null && agent != null)
         {
+            agent.speed = walkSpeed * speedMod;
+
             Vector3 targetPosition = enemy.target.transform.position;
 
             if (Vector3.Distance(targetPosition, transform.position) > followDistance)

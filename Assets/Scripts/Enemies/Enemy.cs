@@ -6,9 +6,12 @@ public class Enemy : MonoBehaviour
 
     public GameObject target;
 
+    public EnemyMovement movement;
+
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player");
+        movement = GetComponent<EnemyMovement>();
     }
 
     public void Taunt(GameObject target)

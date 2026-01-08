@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
+    public float speedMod = 1;
+
     protected Enemy enemy;
 
     void Awake()

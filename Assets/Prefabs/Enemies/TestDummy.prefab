@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4159595107678181728}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8075606263502003709}
   - component: {fileID: 2219396094128754818}
   - component: {fileID: 8941678130151754152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 9193720690921682191}
   - component: {fileID: 4408703959206196925}
   - component: {fileID: 7089302300662542981}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TestDummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   target: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!114 &6298268933416634082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ GameObject:
   - component: {fileID: 4385763706121377144}
   - component: {fileID: 673934864101046493}
   - component: {fileID: 7391472982903538107}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +340,7 @@ GameObject:
   - component: {fileID: 2463252965239398250}
   - component: {fileID: 362656896969148893}
   - component: {fileID: 7213076297892414347}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4784974927960500881}
   - component: {fileID: 5072782137812409806}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,6 +543,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TEST_Billboard_Scarecrow
       objectReference: {fileID: 0}
+    - target: {fileID: 573774388215701768, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182372487024002704, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636617722920317601, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3074284660154134771, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3540253586004381337, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -581,6 +598,34 @@ PrefabInstance:
     - target: {fileID: 3540253586004381337, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176125700796817761, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486536447373811476, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943257070393955527, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6084747095611825312, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6271845255978399205, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591198570424582471, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392082660677117850, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

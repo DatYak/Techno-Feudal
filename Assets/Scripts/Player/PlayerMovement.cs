@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     InputAction lookAction;
     InputAction backAction;
     InputAction parryAction;
-    InputAction dupeAction;
+    InputAction goopAction;
 
     [SerializeField]
     Transform playerHead;
@@ -70,11 +70,11 @@ public class PlayerMovement : MonoBehaviour
     public float parryImmuneTime = 2;
 
     //DUPING
-    public HumorType dupeHumor;
-    public float dupeHumorCost;
-    public float dupeCooldown = 12;
-    float lastDupeLaunch = -100000;
-    public GameObject aggroDuplicate;
+    public HumorType goopHumor;
+    public float goopHumorCost;
+    public float goopCooldown = 14;
+    float lastGoopLaunch = -100000;
+    public GameObject goopBomb;
 
 
     [SerializeField]
@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
         lookAction = input.actions.FindAction("Look");
         backAction = input.actions.FindAction("Back");
         dashAction = input.actions.FindAction("Dash");
-        dupeAction = input.actions.FindAction("Dupe");
+        goopAction = input.actions.FindAction("Goop");
         parryAction = input.actions.FindAction("Parry");
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -132,12 +132,12 @@ public class PlayerMovement : MonoBehaviour
         {
             StopParry();
         }
-        if (dupeAction.WasPerformedThisFrame())
+        if (goopAction.WasPerformedThisFrame())
         {
-            if (lastDupeLaunch + dupeCooldown < Time.time)
+            if (lastGoopLaunch + goopCooldown < Time.time)
             {
-                ThrowDuplicate();
-                lastDupeLaunch = Time.time;
+                ThrowGoopBomb();
+                lastGoopLaunch = Time.time;
             }
         }
     }
@@ -238,10 +238,12 @@ public class PlayerMovement : MonoBehaviour
         player.AddImmunity(parryImmuneTime);
     }
 
-    public void ThrowDuplicate()
+    public void ThrowGoopBomb()
     {
-        humorTracker.ModifyBalance(dupeHumor, dupeHumorCost);
-        Instantiate(aggroDuplicate, transform.position + (playerHead.transform.forward * 3), playerHead.transform.rotation);
+        if (humorTracker.ModifyBalance(goopHumor, goopHumorCost))
+        {
+            Instantiate(goopBomb, playerHead.position + (playerHead.transform.forward), playerHead.transform.rotation);
+        }
     }
 
     IEnumerator DashCoroutine()
