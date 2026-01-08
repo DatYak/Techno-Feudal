@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TiltToFace : MonoBehaviour
+public class SimpleTiltToFace : MonoBehaviour
 {
 
     Transform cam;
