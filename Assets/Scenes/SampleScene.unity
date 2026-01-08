@@ -454,6 +454,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TEST_Billboard_Scarecrow
       objectReference: {fileID: 0}
+    - target: {fileID: 573774388215701768, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3540253586004381337, guid: 761ea9117be05a5459ae13ff097d95b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.462612

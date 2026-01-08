@@ -490,7 +490,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6764773058975984858}
-  - component: {fileID: 5077301343343914055}
   m_Layer: 0
   m_Name: Hori-Billboard
   m_TagString: Untagged
@@ -521,18 +520,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.37766665}
   m_SizeDelta: {x: 0.70666665, y: 1.2459999}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5077301343343914055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6271845255978399205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d022afedc1cf34b40a72e9a1d8bcda28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HorizontalBillboard
 --- !u!1 &6591198570424582471
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,9 +635,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9835ed23a32d16c4495bb38e118eb739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBillboardController
+  root: {fileID: 3540253586004381337}
+  horizontalBillboard: {fileID: 6764773058975984858}
   head: {fileID: 7021443253997849678}
   body: {fileID: 8102797272034736132}
-  bodyTiltPercent: 0.5
+  characterHeight: 2
+  tiltThreshold: 20
+  leg_R: {fileID: 4070130990647284377}
+  leg_L: {fileID: 2483975666132174776}
+  fullStepDistance: 0.5
+  legLift: 0.28
 --- !u!1 &8392082660677117850
 GameObject:
   m_ObjectHideFlags: 0
