@@ -214,7 +214,7 @@ MonoBehaviour:
   goopHumorCost: -0.8
   goopCooldown: 14
   goopBomb: {fileID: 1523343231654033153, guid: 4c93dfde22760cd469280fb9e01f60a2, type: 3}
-  mouseSensitivity: 30
+  mouseSensitivity: 20
 --- !u!143 &7892039358551322963
 CharacterController:
   m_ObjectHideFlags: 0
@@ -445,9 +445,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponSwitcher
   guns:
-  - {fileID: 8884383469385251553}
   - {fileID: 9182367388544340451}
   - {fileID: 7630074181411074188}
+  - {fileID: 8884383469385251553}
   - {fileID: 1016940888017160153}
 --- !u!1 &7824568000412391003
 GameObject:
