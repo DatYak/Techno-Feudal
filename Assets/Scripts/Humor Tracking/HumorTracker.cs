@@ -45,13 +45,20 @@ public class HumorTracker : MonoBehaviour
         }
     }
 
-    public bool IsChangePossible(HumorType target, float delta)
+    public bool IsChangePossible(HumorType target, float delta, out HumorType limitingHumor)
     {
+        if (target == HumorType.None)
+        {
+            limitingHumor = HumorType.None;
+            return true;
+        }
+
         float newTarget = humors[target].currentValue + delta;
 
         // The change would put target over max, or put it below 0
         if ( newTarget > totalFluid || newTarget < 0)
         {
+            limitingHumor = target;
             return false;
         }
 
@@ -67,18 +74,30 @@ public class HumorTracker : MonoBehaviour
             // The change would put another humor over max, or put it below 0
             if (newOther > totalFluid || newOther < 0)
             {
+                limitingHumor = h;
                 return false;
             }
         }
 
+        limitingHumor = HumorType.None;
         return true;
 
     }
 
-    public bool ModifyBalance(HumorType target, float delta)
+    public bool ModifyBalance(HumorType target, float delta, bool willDrawToMax = false)
     {
-        if (!IsChangePossible(target, delta))
-            { return false; }
+        HumorType limitingHumor = HumorType.None;
+        if (!IsChangePossible(target, delta, out limitingHumor))
+        {
+            if (!willDrawToMax)
+                return false; 
+            else
+            {
+                float maxDelta = Mathf.Abs(humors[limitingHumor].currentValue - Mathf.Clamp(humors[limitingHumor].currentValue + delta, 0, totalFluid));
+                delta = Mathf.Clamp(delta, -maxDelta, maxDelta);
+            }
+            
+        }
 
         // The other humors experience a third of the effect in the other direction
         float deltaOthers = -delta / 3.0f;

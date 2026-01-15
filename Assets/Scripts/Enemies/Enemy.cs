@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
 
     public EnemyMovement movement;
 
+    public HumorType humorType = HumorType.None;
+    public float humorIntensity = 0;
+
     void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player");

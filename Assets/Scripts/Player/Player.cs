@@ -4,6 +4,7 @@ public class Player : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     public PlayerMovement playerMovement;
+    public HumorTracker humorTracker;
 
     public bool isParrying;
     public bool isImmune;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         playerHealth = GetComponent<PlayerHealth>();
         playerMovement = GetComponent<PlayerMovement>();
+        humorTracker = GetComponent<HumorTracker>();
     }
 
     // Update is called once per frame

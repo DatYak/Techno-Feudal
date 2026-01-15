@@ -13,7 +13,7 @@ public class SimpleShootEnemy : MonoBehaviour
     float lastFired;
 
     [SerializeField]
-    GameObject projectile;
+    EnemyProjectile projectile;
 
     private Enemy enemy;
 
@@ -33,7 +33,10 @@ public class SimpleShootEnemy : MonoBehaviour
         {
             lastFired = Time.time;
             Quaternion rotation = Quaternion.LookRotation(enemy.target.transform.position - transform.position);
-            Instantiate(projectile, transform.position + transform.up, rotation);
+            EnemyProjectile proj = Instantiate(projectile, transform.position + transform.up, rotation);
+
+            proj.humorType = enemy.humorType;
+            proj.humorIntensity = enemy.humorIntensity;
         }
     }
 }
