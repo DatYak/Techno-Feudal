@@ -18,10 +18,16 @@ public class SimpleMeleeEnemy : MonoBehaviour
     //time the last attack was initiated
     float lastAttack;
 
-    bool hasAttacked = false;
+    bool hasAttacked = true;
 
     private Enemy enemy;
 
+    [Header("Animations and Effects")]
+    [SerializeField]
+    private EnemyBillboardController modelController;
+    [SerializeField]
+    string weaponSpriteGroupName = "weapon";
+    
 
     void Start()
     {
@@ -37,6 +43,7 @@ public class SimpleMeleeEnemy : MonoBehaviour
             //Start attack windup
             lastAttack = Time.time;
             hasAttacked = false;
+            modelController.NextSprite(weaponSpriteGroupName);
         }
 
         if (lastAttack + attackWindup < Time.time && !hasAttacked)
@@ -47,6 +54,7 @@ public class SimpleMeleeEnemy : MonoBehaviour
                 enemy.target.GetComponent<Player>().Damage(attackDamage);
             }
 
+            modelController.NextSprite(weaponSpriteGroupName);
             hasAttacked = true;
         }
     }
