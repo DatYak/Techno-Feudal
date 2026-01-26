@@ -28,7 +28,6 @@ public class BillboardSpriteGroup : MonoBehaviour
 
     public void SwapSpriteToIndex(int index = 0)
     {
-        Debug.Log (index);
         //Make sure the index is in bounds
         if (index < 0 || index > spriteObjects.Length)
             index = 0;
