@@ -28,7 +28,7 @@ public class SimpleWalkEnemy : EnemyMovement
 
             if (Vector3.Distance(targetPosition, transform.position) > followDistance)
             {
-                agent.destination = targetPosition - transform.position;
+                agent.destination = targetPosition;
             }
             else
             {

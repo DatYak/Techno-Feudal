@@ -124,10 +124,10 @@ GameObject:
   - component: {fileID: 6023214160669520851}
   - component: {fileID: 6298268933416634082}
   - component: {fileID: 9193720690921682191}
-  - component: {fileID: 4408703959206196925}
+  - component: {fileID: 6474959218154087602}
   - component: {fileID: 7089302300662542981}
   m_Layer: 7
-  m_Name: Crossbow Knight
+  m_Name: Sword Knight
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleWalkEnemy
   speedMod: 1
-  followDistance: 10
+  followDistance: 2
   walkSpeed: 4
---- !u!114 &4408703959206196925
+--- !u!114 &6474959218154087602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,12 +227,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4740615808764062551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5be5efe4bc55f4e96828aa9a8d000d, type: 3}
+  m_Script: {fileID: 11500000, guid: 995e51d172c3e1844b733003c5bae522, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SimpleShootEnemy
-  fireDistance: 12
-  fireDelay: 2
-  projectile: {fileID: 4933977798265737440, guid: 8a7e03781b75b84409cb2e5c767693f3, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleMeleeEnemy
+  attackDamage: 20
+  attackDistance: 3
+  attackWindup: 1
+  attackDelay: 1
 --- !u!195 &7089302300662542981
 NavMeshAgent:
   m_ObjectHideFlags: 0
