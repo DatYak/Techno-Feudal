@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SlimeTransparent: 0.9
+    - _SlimeTransparent: 1
     m_Colors:
     - _Color1: {r: 0.42352945, g: 0, b: 0, a: 1}
     - _Color2: {r: 0.5309972, g: 0.085159846, b: 0.085159846, a: 1}

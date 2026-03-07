@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 03486d6f983621c47ab6b92f2618ce32
+guid: 2fdb4b5773f46374490666d4f11137fb
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: slime
-    second: {fileID: 2100000, guid: a52917fc94b9d5940955f053497bd553, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
