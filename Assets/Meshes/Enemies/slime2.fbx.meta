@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 791bcb7ef13bf774baeca800ecbbca4b
+guid: ff5f72364c2ca10498b654e912610c90
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: brick
-    second: {fileID: 2100000, guid: 7568e1e50cc7d0e4ba720c4111bf1eb1, type: 2}
+      name: enemy1
+    second: {fileID: 2100000, guid: a52917fc94b9d5940955f053497bd553, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
