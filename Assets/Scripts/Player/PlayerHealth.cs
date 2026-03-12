@@ -39,7 +39,10 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (imbalance < balanceToHeal)
         {
-            Damage(-balanceHealRate * Time.deltaTime);
+            float heal = balanceHealRate;
+            float missingHP = maxHP - currentHP;
+            heal = Mathf.Clamp(heal, 0, missingHP);
+            Damage(-heal * Time.deltaTime);
         }
     }
 

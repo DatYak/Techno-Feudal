@@ -12,6 +12,16 @@ public class EnemyProjectile : MonoBehaviour
     [SerializeField]
     int damage;
 
+    public HumorType humorType = HumorType.None;
+
+    public float humorIntensity = 0;
+
+    public Material baseMat;
+    public Material phlegmMat;
+    public Material bloodMat;
+    public Material yBileMat;
+    public Material bBileMat;
+
     Vector3 spawnPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,7 +33,26 @@ public class EnemyProjectile : MonoBehaviour
 
         spawnPoint = transform.position;
 
-        Debug.Log ("Projectile spawned");
+        MeshRenderer model = GetComponentInChildren<MeshRenderer>();
+        if (model)
+            switch(humorType)
+            {
+                case HumorType.None:
+                    model.material = baseMat;
+                    break;
+                case HumorType.Phlegm:
+                    model.material = phlegmMat;
+                    break;
+                case HumorType.Blood:
+                    model.material = bloodMat;
+                    break;
+                case HumorType.YellowBile:
+                    model.material = yBileMat;
+                    break;
+                case HumorType.BlackBile:
+                    model.material = bBileMat;
+                    break;
+            }
     }
 
     // Update is called once per frame
@@ -42,6 +71,11 @@ public class EnemyProjectile : MonoBehaviour
         {
             Player hit = other.gameObject.GetComponent<Player>();
             hit.Damage(damage);
+
+            if (humorType != HumorType.None)
+            {
+                hit.humorTracker.ModifyBalance(humorType, humorIntensity, true);
+            }
         }
         else if (other.gameObject.tag != "Enemy")
         {

@@ -76,7 +76,8 @@ public class GunBase : MonoBehaviour
             return;
         }
 
-        if (humorTracker.IsChangePossible(humor, humorCost) == false)
+        HumorType limit;
+        if (humorTracker.IsChangePossible(humor, humorCost, out limit) == false)
         {
             return;
         }

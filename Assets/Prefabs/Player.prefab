@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerHealth: {fileID: 0}
   playerMovement: {fileID: 0}
+  humorTracker: {fileID: 0}
   isParrying: 0
   isImmune: 0
   parryDamageReduction: 0.5
@@ -212,7 +213,7 @@ MonoBehaviour:
   parryImmuneTime: 2
   goopHumor: 2
   goopHumorCost: -0.8
-  goopCooldown: 14
+  goopCooldown: 0
   goopBomb: {fileID: 1523343231654033153, guid: 4c93dfde22760cd469280fb9e01f60a2, type: 3}
   mouseSensitivity: 20
 --- !u!143 &7892039358551322963
@@ -392,9 +393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHP: 100
-  imbalanceToDamage: 0.5
-  balanceToHeal: 0.3
-  imbalanceDamageRate: 0.1
+  imbalanceToDamage: 1
+  balanceToHeal: 0.75
+  imbalanceDamageRate: 0.5
   balanceHealRate: 3
 --- !u!1 &6384420000076725331
 GameObject:

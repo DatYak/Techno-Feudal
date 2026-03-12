@@ -7,31 +7,41 @@ public class EnemyBillboardController : MonoBehaviour
 
     //The main camera, for getting player view angle
     Transform cam;
-    public Transform root;
+    [SerializeField]
+    private Transform root;
 
-    [Header("Body Billboarding")]
-    public Transform horizontalBillboard;
+    [SerializeField] [Header("Body Billboarding")]
+    private Transform horizontalBillboard;
+    [SerializeField]
     //Head of the enemy
-    public Transform head;
+    private Transform head;
+    [SerializeField]
     //Body of the enemy
-    public Transform body;
+    private Transform body;
 
 
-    [Tooltip("Character height in unity units")]
-    public float characterHeight;
+    [SerializeField] [Tooltip("Character height in unity units")]
+    private float characterHeight;
 
-    [Tooltip("The angle the character start tilting at")] 
-    public float tiltThreshold;
+    [SerializeField] [Tooltip("The angle the character start tilting at")] 
+    private float tiltThreshold;
 
 
     [Header("Legs and Walking")]
-    public Transform leg_R;
-    public Transform leg_L;    
+    [SerializeField]
+    private Transform leg_R;
+    [SerializeField]
+    private Transform leg_L;    
 
-    [Tooltip("Distance to take a step")]
-    public float fullStepDistance;
-    [Tooltip("How high each leg lifts when walking")]
-    public float legLift;
+    [SerializeField] [Tooltip("Distance to take a step")]
+    private float fullStepDistance;
+    [SerializeField] [Tooltip("How high each leg lifts when walking")]
+    private float legLift;
+
+    [SerializeField]
+    private BillboardSpriteGroup[] spriteGroups;
+
+
     private float legDownPos;
     private float legLiftPos;
 
@@ -114,6 +124,38 @@ public class EnemyBillboardController : MonoBehaviour
             Vector3 legPos = new Vector3(leg_L.localPosition.x, legLift, leg_L.localPosition.z);
             leg_L.localPosition = legPos;
         }
+    }
 
+    private BillboardSpriteGroup GetSpriteGroupByName(string groupName)
+    {
+        BillboardSpriteGroup result = null;
+        for (int i = 0; i < spriteGroups.Length; i++)
+        {
+            if (spriteGroups[i].groupName == groupName)
+            {
+                result = spriteGroups[i];
+                break;
+            }
+        }  
+
+        return result;
+    }
+
+    public void NextSprite(string groupName)
+    {
+        BillboardSpriteGroup brg = GetSpriteGroupByName(groupName);
+        if (brg)
+        {
+            brg.NextSprite();
+        }
+    }
+    
+    public void SwapSpriteToIndex(string groupName, int index)
+    {
+        BillboardSpriteGroup brg = GetSpriteGroupByName(groupName);
+        if (brg)
+        {
+            brg.SwapSpriteToIndex(index);
+        }
     }
 }
