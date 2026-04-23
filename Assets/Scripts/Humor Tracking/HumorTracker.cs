@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -6,6 +7,8 @@ public class HumorTracker : MonoBehaviour
 {
     public float totalFluid = 20;
     public Dictionary<HumorType, Humor> humors;
+
+    public HumorType[] humorOrder;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -119,6 +122,18 @@ public class HumorTracker : MonoBehaviour
     public float GetHumorPercent(HumorType type)
     {
         return humors[type].currentValue / totalFluid;
+    }
+
+    public float[] GetAllHumorPercents()
+    {
+        float[] results = new float[4];
+
+        for (int i = 0; i < humorOrder.Length; i++)
+        {
+            results[i] = GetHumorPercent(humorOrder[i]);
+        }
+
+        return results;
     }
 
     public float GetHumorImbalance()

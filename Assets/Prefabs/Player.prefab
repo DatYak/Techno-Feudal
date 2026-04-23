@@ -121,6 +121,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &4242463749515770798
 GameObject:
@@ -380,6 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumorTracker
   totalFluid: 20
+  humorOrder: 04000000030000000200000001000000
 --- !u!114 &1239874144639081320
 MonoBehaviour:
   m_ObjectHideFlags: 0
