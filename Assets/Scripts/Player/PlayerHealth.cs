@@ -50,4 +50,9 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHP -= damage;
     }
+
+    public void ResetHealth ()
+    {
+        currentHP = maxHP;        
+    }
 }

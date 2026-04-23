@@ -3,12 +3,10 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
 [RequireComponent (typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
 
-    PlayerInput input;
     CharacterController controller;
 
     InputAction moveAction;
@@ -91,17 +89,16 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
-        input = GetComponent<PlayerInput>();
         controller = GetComponent<CharacterController>();
         humorTracker = GetComponent<HumorTracker>();
 
-        moveAction = input.actions.FindAction("Move");
-        jumpAction = input.actions.FindAction("Jump");
-        lookAction = input.actions.FindAction("Look");
-        backAction = input.actions.FindAction("Back");
-        dashAction = input.actions.FindAction("Dash");
-        goopAction = input.actions.FindAction("Goop");
-        parryAction = input.actions.FindAction("Parry");
+        moveAction = InputSystem.actions.FindAction("Move");
+        jumpAction = InputSystem.actions.FindAction("Jump");
+        lookAction = InputSystem.actions.FindAction("Look");
+        backAction = InputSystem.actions.FindAction("Back");
+        dashAction = InputSystem.actions.FindAction("Dash");
+        goopAction = InputSystem.actions.FindAction("Goop");
+        parryAction = InputSystem.actions.FindAction("Parry");
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

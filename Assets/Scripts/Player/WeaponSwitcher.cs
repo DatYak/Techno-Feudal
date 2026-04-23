@@ -19,11 +19,11 @@ public class WeaponSwitcher : MonoBehaviour
     {
         SwapGun(activeGun);
 
-        fireAction = transform.root.GetComponent<PlayerInput>().actions.FindAction("Attack");
-        wep1Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 1");
-        wep2Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 2");
-        wep3Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 3");
-        wep4Action = transform.root.GetComponent<PlayerInput>().actions.FindAction("Weapon 4");
+        fireAction = InputSystem.actions.FindAction("Attack");
+        wep1Action = InputSystem.actions.FindAction("Weapon 1");
+        wep2Action = InputSystem.actions.FindAction("Weapon 2");
+        wep3Action = InputSystem.actions.FindAction("Weapon 3");
+        wep4Action = InputSystem.actions.FindAction("Weapon 4");
 
         wep1Action.performed += SwapWeapon1;
         wep2Action.performed += SwapWeapon2;
